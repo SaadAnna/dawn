@@ -146,6 +146,16 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   z-index: 0;
 }
 
+.content-for-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.content-for-layout > .shopify-section:last-child {
+  flex-grow: 1;
+}
+
 .section + .section {
   margin-top: var(--spacing-sections-mobile);
 }
