@@ -1,0 +1,45 @@
+<section class="py-24 md:py-32 bg-kiln-bg">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex items-end justify-between mb-16 reveal">
+      <div>
+        <p class="text-xs tracking-[0.3em] uppercase text-kiln-accent mb-4">Shop</p>
+        <h2 class="text-4xl md:text-5xl font-light text-kiln-ink">{{ section.settings.heading }}</h2>
+      </div>
+      <a href="/collections/all" class="hidden md:inline-block text-sm tracking-widest uppercase border-b border-kiln-ink pb-1">View all</a>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+      {% for product in collections[section.settings.collection].products limit: 4 %}
+        <a href="{{ product.url }}" class="reveal group" style="transition-delay: {{ forloop.index0 | times: 100 }}ms">
+          <div class="tilt-3d aspect-[3/4] bg-white overflow-hidden mb-4">
+            <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title }}"
+                 class="w-full h-full object-cover" loading="lazy">
+          </div>
+          <h3 class="text-sm font-medium text-kiln-ink mb-1">{{ product.title }}</h3>
+          <p class="text-sm text-kiln-muted">{{ product.price | money }}</p>
+        </a>
+      {% else %}
+        {% for i in (1..4) %}
+          <div class="reveal">
+            <div class="tilt-3d aspect-[3/4] bg-white overflow-hidden mb-4">
+              <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&sig={{ i }}" alt="Coffee" class="w-full h-full object-cover">
+            </div>
+            <h3 class="text-sm font-medium">Ethiopia Yirgacheffe</h3>
+            <p class="text-sm text-kiln-muted">$18.00</p>
+          </div>
+        {% endfor %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kiln Featured",
+  "settings": [
+    { "type": "text", "id": "heading", "label": "Heading", "default": "This week's roast" },
+    { "type": "collection", "id": "collection", "label": "Collection" }
+  ],
+  "presets": [{ "name": "Kiln Featured" }]
+}
+{% endschema %}

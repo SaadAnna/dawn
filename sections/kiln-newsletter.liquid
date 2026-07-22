@@ -1,0 +1,18 @@
+<section class="py-24 md:py-32 bg-kiln-ink text-white">
+  <div class="max-w-3xl mx-auto px-6 text-center reveal">
+    <h2 class="text-4xl md:text-5xl font-light mb-6">Get the roast schedule.</h2>
+    <p class="text-white/60 mb-10">One email a week. New batches, brewing notes, no spam.</p>
+    {% form 'customer' %}
+      <input type="hidden" name="contact[tags]" value="newsletter">
+      <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+        <input type="email" name="contact[email]" placeholder="your@email.com" required
+               class="flex-1 bg-transparent border border-white/30 px-5 py-4 text-sm focus:outline-none focus:border-white">
+        <button type="submit" class="bg-white text-kiln-ink px-8 py-4 text-sm tracking-widest uppercase transition-transform duration-500 hover:-translate-y-1">Subscribe</button>
+      </div>
+    {% endform %}
+  </div>
+</section>
+
+{% schema %}
+{ "name": "Kiln Newsletter", "presets": [{ "name": "Kiln Newsletter" }] }
+{% endschema %}

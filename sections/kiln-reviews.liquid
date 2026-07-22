@@ -1,0 +1,38 @@
+<section class="py-24 md:py-32 bg-white">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-20 reveal">
+      <p class="text-xs tracking-[0.3em] uppercase text-kiln-accent mb-4">Loved by</p>
+      <h2 class="text-4xl md:text-5xl font-light text-kiln-ink">What people are saying</h2>
+    </div>
+    <div class="grid md:grid-cols-3 gap-8">
+      {% for block in section.blocks %}
+        <div class="reveal p-10 bg-kiln-bg border border-kiln-line" style="transition-delay: {{ forloop.index0 | times: 100 }}ms">
+          <div class="flex gap-1 mb-6 text-kiln-accent">{% for i in (1..5) %}★{% endfor %}</div>
+          <p class="text-kiln-ink leading-relaxed mb-8">"{{ block.settings.quote }}"</p>
+          <p class="text-sm font-medium">{{ block.settings.name }}</p>
+          <p class="text-xs uppercase tracking-widest text-kiln-muted mt-1">{{ block.settings.role }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Kiln Reviews",
+  "blocks": [{
+    "type": "review", "name": "Review",
+    "settings": [
+      { "type": "textarea", "id": "quote", "label": "Quote", "default": "The best cup I've had in years. Clean, bright, honest." },
+      { "type": "text", "id": "name", "label": "Name", "default": "Sarah M." },
+      { "type": "text", "id": "role", "label": "Role", "default": "Verified buyer" }
+    ]
+  }],
+  "presets": [{
+    "name": "Kiln Reviews",
+    "blocks": [
+      { "type": "review" }, { "type": "review" }, { "type": "review" }
+    ]
+  }]
+}
+{% endschema %}
