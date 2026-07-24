@@ -10,7 +10,7 @@
         <div class="reveal text-center" style="transition-delay: {{ forloop.index0 | times: 100 }}ms">
           <div class="tilt-3d aspect-square mb-6 bg-kiln-cream overflow-hidden">
             <img src="{{ block.settings.image | default: 'https://images.unsplash.com/photo-1447933601403-0c6688de566e?w=600' }}"
-                 alt="{{ block.settings.title }}" class="w-full h-full object-cover" loading="lazy">
+                 alt="{{ block.settings.title }}" class="w-full h-full object-cover" loading="lazy" width="600" height="600">
           </div>
           <p class="text-xs tracking-[0.2em] uppercase text-kiln-muted mb-2">0{{ forloop.index }}</p>
           <h3 class="text-lg font-medium text-kiln-ink mb-2">{{ block.settings.title }}</h3>
