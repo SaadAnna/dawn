@@ -13,7 +13,8 @@
         <a href="{{ product.url }}" class="reveal group" style="transition-delay: {{ forloop.index0 | times: 100 }}ms">
           <div class="tilt-3d aspect-[3/4] bg-white overflow-hidden mb-4">
             <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title }}"
-                 class="w-full h-full object-cover" loading="lazy">
+                 class="w-full h-full object-cover" loading="lazy"
+                 width="600" height="800">
           </div>
           <h3 class="text-sm font-medium text-kiln-ink mb-1">{{ product.title }}</h3>
           <p class="text-sm text-kiln-muted">{{ product.price | money }}</p>
@@ -22,7 +23,7 @@
         {% for i in (1..4) %}
           <div class="reveal">
             <div class="tilt-3d aspect-[3/4] bg-white overflow-hidden mb-4">
-              <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&sig={{ i }}" alt="Coffee" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?w=600&sig={{ i }}" alt="Coffee" class="w-full h-full object-cover" width="600" height="800">
             </div>
             <h3 class="text-sm font-medium">Ethiopia Yirgacheffe</h3>
             <p class="text-sm text-kiln-muted">$18.00</p>
