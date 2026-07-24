@@ -14,15 +14,13 @@
         "enable_language_selector": false
       },
       "blocks": {
-        "announcement-bar-0": {
-          "type": "announcement",
-          "settings": {
-            "text": "Welcome to our store",
-            "text_alignment": "center",
-            "color_scheme": "scheme-1",
-            "link": ""
-          }
-        }
+"announcement-bar-0": {
+  "type": "announcement",
+  "settings": {
+    "text": "Welcome to our store",
+    "link": ""
+  }
+}
       },
       "block_order": [
         "announcement-bar-0"
